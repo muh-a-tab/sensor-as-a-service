@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service ChaffModel{
+  rpc createChaff(ChaffCreateRequest)  returns (ResponseMessage);
+  rpc getChaffInfo(ChaffInfoRequest)  returns (ChaffInfo);
+}
+
+message ChaffCreateRequest{
+  int32 id = 1 ;
+  double maxRCS = 2 ;
+  double T_c = 3;
+  double T_if = 4;
+  double T_ef = 5;
+  double T_trend = 6;
+  double CretionTime = 7;
+}
+
+message ResponseMessage{
+  string responseMessage = 1;
+}
+
+message ChaffInfoRequest{
+  int32 id = 1;
+  double SimulationTime = 2;
+}
+
+message ChaffInfo{
+  double RCS = 1;
+}
